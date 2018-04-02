@@ -1,0 +1,20 @@
+# Legemidler (navn, type, pris, virkestoff [, styrke]
+Predizol, a, 450.0, 75.0, 8
+ParalginForte, b, 65.0, 400.0, 5
+PlaceboPianissimo, c, 10.0, 0.0, 
+Ibux, c, 240.0, 200.0, 
+# Leger (navn, avtalenr / 0 hvis ingen avtale)
+Dr.Cox, 0
+Dr.HillestadLovold, 0
+Dr.House, 12345
+Dr.Wilson, 0
+# Pasienter (navn)
+JensHansOlsen
+PetrolinaSwiq
+SvenSvendsen
+JuniOlsen
+# Resepter (type, legemiddelNummer, legeNavn, persID, [reit])
+blaa, 0, Dr.Cox, 2, 3
+hvit, 1, Dr.HillestadLovold, 3, 10000
+prevensjon, 2, Dr.House, 1, 3
+militaer, 3, Dr.HillestadLovold, 3, 2

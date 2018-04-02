@@ -1,0 +1,81 @@
+
+# Legemidler
+Navn paa legemiddel: Predizol
+Legemiddel-ID: 0
+Pris: 450.0
+Virkestoff (mg): 75.0
+Styrke: 8
+Navn paa legemiddel: ParalginForte
+Legemiddel-ID: 1
+Pris: 65.0
+Virkestoff (mg): 400.0
+Vanedannende: 5
+Navn paa legemiddel: PlaceboPianissimo
+Legemiddel-ID: 2
+Pris: 10.0
+Virkestoff (mg): 0.0
+Navn paa legemiddel: Ibux
+Legemiddel-ID: 3
+Pris: 240.0
+Virkestoff (mg): 200.0
+
+# Leger
+Navn paa lege: Dr.Cox
+Navn paa lege: Dr.HillestadLovold
+Navn paa lege: Dr.House
+Avtalenummer: 12345
+Navn paa lege: Dr.Wilson
+
+# Pasienter
+Navn: JensHansOlsen
+ID: 0
+Navn: PetrolinaSwiq
+ID: 1
+Navn: SvenSvendsen
+ID: 2
+Navn: JuniOlsen
+ID: 3
+
+# Resepter
+Type resept: blaa
+Resept-ID: 0
+Navn paa lege: Dr.Cox
+Navn paa legemiddel: PlaceboPianissimo
+Legemiddel-ID: 2
+Pris: 10.0
+Virkestoff (mg): 0.0
+Pasient-ID: 2
+Reit: 3
+Pris aa betale: 2.5
+Type resept: hvit
+Resept-ID: 1
+Navn paa lege: Dr.HillestadLovold
+Navn paa legemiddel: Ibux
+Legemiddel-ID: 3
+Pris: 240.0
+Virkestoff (mg): 200.0
+Pasient-ID: 3
+Reit: 10000
+Pris aa betale: 240.0
+Type resept: hvit
+Resept-ID: 2
+Navn paa lege: Dr.House
+Avtalenummer: 12345
+Navn paa legemiddel: ParalginForte
+Legemiddel-ID: 1
+Pris: 65.0
+Virkestoff (mg): 400.0
+Vanedannende: 5
+Pasient-ID: 1
+Reit: 3
+Pris aa betale: 0.0
+Type resept: hvit
+Resept-ID: 3
+Navn paa lege: Dr.HillestadLovold
+Navn paa legemiddel: Ibux
+Legemiddel-ID: 3
+Pris: 240.0
+Virkestoff (mg): 200.0
+Pasient-ID: 3
+Reit: 2
+Pris aa betale: 0.0
