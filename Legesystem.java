@@ -252,26 +252,31 @@ class Legesystem {
 				System.out.println("Mangler informasjon i systemet for å kunne legge til resept.");
 				return;
 			}
+
 			printLeger();
 			String legeNavn = spoerOmString("Oppgi legens navn: ");
 			while (finnLege(legeNavn) == null) {
 				legeNavn = spoerOmString("Fant ikke legen, oppgi legens navn: ");
 			}
+
 			printPasienter();
 			String pasientNavn = spoerOmString("Oppgi pasientens navn: ");
 			while (finnPasient(pasientNavn) == null) {
 				pasientNavn = spoerOmString("Fant ikke pasienten, oppgi pasientens navn: ");
 			}
+
 			printLegemidler();
 			String legemiddelNavn = spoerOmString("Oppgi legemiddel: ");
 			while (finnLegemiddel(legemiddelNavn) == null) {
 				legemiddelNavn = spoerOmString("Fant ikke legemiddelet, oppgi legemiddel: ");
 			}
+
 			int typeResept = spoerOmInt("Oppgi type resept (1: Hvit, 2: Blå. 3: P-Resept. 4: Militærresept.): ");
 			while (typeResept != 1 && typeResept != 2 && typeResept != 3 && typeResept != 4) {
 				typeResept = spoerOmInt(
 						"Dette valget finnes ikke. Oppgi type resept (1: Hvit, 2: Blå. 3: P-Resept. 4: Militærresept.): ");
 			}
+			
 			int reit;
 			Lege lege = finnLege(legeNavn);
 			Pasient pasient = finnPasient(pasientNavn);
