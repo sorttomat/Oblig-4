@@ -24,14 +24,17 @@ class Legesystem {
 				lesInnFraFil(fileName);
 				hovedmeny();
 				break;
+
 			case 2:
 				hovedmeny();
 				break;
+
 			default:
 				System.out.println("Det skjønte jeg ikke, så jeg tar deg med til hovedmenyen.");
 				hovedmeny();
 				break;
 			}
+			
 		} catch (InputMismatchException mis) {
 			System.out.println("Feil i input!");
 			hovedmeny();
@@ -714,7 +717,7 @@ class Legesystem {
 			print += pasient.toString();
 			print += "\n";
 		}
-		
+
 		print += "Legemidler: \n";
 		for (Legemiddel legemiddel : legemidler) {
 			print += legemiddel.toString();
