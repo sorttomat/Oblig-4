@@ -131,18 +131,22 @@ class Legesystem {
 		Pasient pasient = finnPasient(pasientId);
 		Legemiddel legemiddel = finnLegemiddel(pasientId);
 		Resept resept = null;
+
 		switch (typeResept) {
 		case "blaa":
 			reit = Integer.parseInt(line[4]);
 			resept = new ReseptBlaa(legemiddel, lege, pasient, reit);
 			break;
+
 		case "hvit":
 			reit = Integer.parseInt(line[4]);
 			resept = new ReseptHvit(legemiddel, lege, pasient, reit);
 			break;
+
 		case "prevensjon":
 			resept = new PResept(legemiddel, lege, pasient);
 			break;
+
 		case "militaer":
 			reit = Integer.parseInt(line[4]);
 			resept = new MilitaerResept(legemiddel, lege, pasient, reit);
@@ -160,6 +164,7 @@ class Legesystem {
 			while (valg == 0) {
 				valg = spoerOmInt("Ugyldig valg. Vennligst tast inn et tall mellom 1 og 6: ");
 			}
+
 			switch (valg) {
 			case 1:
 				System.out.println(this);
@@ -190,6 +195,7 @@ class Legesystem {
 			System.out.println();
 			valgElement = spoerOmInt("Ugyldig valg. Vennligst prøv igjen: ");
 		}
+
 		switch (valgElement) {
 		case 1:
 			leggTilLege();
@@ -218,16 +224,19 @@ class Legesystem {
 				return;
 			}
 		}
+
 		int valg = spoerOmInt("Hvis fastlege, oppgi avtalenummer. Ellers tast 1: ");
 		while (valg == 0) {
 			valg = spoerOmInt("Ugyldig valg. Vennligst tast inn et tall: ");
 		}
+
 		Lege lege;
 		if (valg != 1) {
 			lege = new Fastlege(navnLege, valg);
 		} else {
 			lege = new Lege(navnLege);
 		}
+
 		leger.leggTil(lege);
 		System.out.println("Lege lagt til! \n");
 	}
@@ -241,6 +250,7 @@ class Legesystem {
 				return;
 			}
 		}
+
 		Pasient pasient = new Pasient(navnPasient);
 		pasienter.leggTil(pasient);
 		System.out.println("Pasient lagt til! \n");
@@ -276,7 +286,7 @@ class Legesystem {
 				typeResept = spoerOmInt(
 						"Dette valget finnes ikke. Oppgi type resept (1: Hvit, 2: Blå. 3: P-Resept. 4: Militærresept.): ");
 			}
-			
+
 			int reit;
 			Lege lege = finnLege(legeNavn);
 			Pasient pasient = finnPasient(pasientNavn);
@@ -307,6 +317,7 @@ class Legesystem {
 			pasient.leggTilResept(nyResept);
 			resepter.leggTil(nyResept);
 			System.out.println("Resept lagt til! \n");
+
 		} catch (Exception ex) {
 			System.out.println("Noe gikk galt i leggTilResept.");
 			return;
@@ -340,6 +351,7 @@ class Legesystem {
 			while (valg == 0) {
 				valg = spoerOmInt("Ugyldig valg. Vennligst tast inn et tall mellom 1 og 3: ");
 			}
+
 			switch (valg) {
 			case 1:
 				int styrke = spoerOmInt("Oppgi styrke: ");
@@ -360,8 +372,10 @@ class Legesystem {
 				leggTilLegemiddel();
 				break;
 			}
+
 			legemidler.leggTil(nyttLegemiddel);
 			System.out.println("Legemiddel lagt til!");
+
 		} catch (InputMismatchException ex) {
 			System.out.println("Noe ble feil i leggTilLegemiddel, mest sannsynlig noe med en int eller double.");
 			leggTilLegemiddel();
@@ -385,23 +399,26 @@ class Legesystem {
 			System.out.println("Det finnes ingen resepter i systemet.");
 			return;
 		}
+
 		printPasienter();
 		String pasientNavn = spoerOmString("Hvem vil du se oversikt over resepter for?");
 		while (finnPasient(pasientNavn) == null) {
 			pasientNavn = spoerOmString("Vennligst oppgi en eksisterende pasient: ");
 		}
+
 		printResepterForPasient(pasientNavn);
 		int reseptId = spoerOmInt("Vennligst oppgi ID'en på resepten du ønsker å bruke: ");
-
 		while (finnReseptTilPasient(reseptId, pasientNavn) == null) {
 			reseptId = spoerOmInt("Finner ikke resepten, vennligst oppgi ID'en på resepten du ønsker å bruke: ");
 		}
+
 		Resept resept = finnReseptTilPasient(reseptId, pasientNavn);
 
 		while (spoerOmString("Ønsker du å bruke " + resept.hentLegemiddel().hentNavn() + "? j/n").equals("n")) {
 			reseptId = spoerOmInt("Vennligst oppgi ID'en på resepten du ønsker å bruke: ");
 			resept = finnReseptTilPasient(reseptId, pasientNavn);
 		}
+
 		resept.brukResept();
 		System.out.println("Resept brukt, gjenværende reit er: " + resept.hentReit());
 	}
@@ -465,21 +482,25 @@ class Legesystem {
 		while (svar != 1 && svar != 2 && svar != 3) {
 			svar = spoerOmInt("Ikke gyldig svaralternativ. Prøv igjen: ");
 		}
+
 		switch (svar) {
 		case 1:
 			System.out
 					.println("Totalt antall resepter med vanedannende legemidler er: " + antallResepterVanedannende());
 			break;
+
 		case 2:
 			System.out.println(
 					"Totalt antall vanedannende resepter utskrevne til militære er: " + antallVanedannendeMilitaer());
 			break;
+
 		case 3:
 			System.out.println("Statistikk om mulig misbruk av narkotika: ");
 			System.out.println("Leger som har skrevet ut vanedannende legemidler på resept: ");
 			printAntallLegerVanedannende();
 			System.out.println("Pasienter med gyldig resept på vanedannende legemidler: ");
 			printAntallPasienterVanedannende();
+			break;
 		}
 	}
 
@@ -535,7 +556,9 @@ class Legesystem {
 						+ ", " + resept.hentReit();
 				writer.write(skrivResept + "\n");
 			}
+
 			writer.close();
+
 		} catch (IOException ex) {
 		}
 	}
@@ -595,6 +618,7 @@ class Legesystem {
 			System.out.println(print);
 			Scanner strng = new Scanner(System.in);
 			return strng.nextLine();
+
 		} catch (InputMismatchException ex) {
 			return null;
 		}
@@ -605,6 +629,7 @@ class Legesystem {
 			System.out.println(print);
 			Scanner nt = new Scanner(System.in);
 			return nt.nextInt();
+
 		} catch (InputMismatchException ex) {
 			return 0;
 		}
@@ -615,6 +640,7 @@ class Legesystem {
 			System.out.println(print);
 			Scanner dbl = new Scanner(System.in);
 			return Double.parseDouble(dbl.nextLine());
+
 		} catch (InputMismatchException ex) {
 			return 0.0;
 		}
@@ -676,16 +702,19 @@ class Legesystem {
 			print += lege.toString();
 			print += "\n";
 		}
+
 		print += "Resepter: \n";
 		for (Resept resept : resepter) {
 			print += resept.toString();
 			print += "\n";
 		}
+
 		print += "Pasienter: \n";
 		for (Pasient pasient : pasienter) {
 			print += pasient.toString();
 			print += "\n";
 		}
+		
 		print += "Legemidler: \n";
 		for (Legemiddel legemiddel : legemidler) {
 			print += legemiddel.toString();
